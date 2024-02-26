@@ -6,7 +6,7 @@
 <script>
     function checkPassword() {
         var password = document.getElementById("password").value;
-        var correctPassword = "20181028"; // 這裡設置你的密碼
+        var correctPassword = "123456"; // 這裡設置你的密碼
         if(password == correctPassword) {
             document.getElementById("protectedContent").style.display = "block";
             document.getElementById("loginForm").style.display = "none";
@@ -14,12 +14,19 @@
             alert("密碼錯誤！");
         }
     }
+
+    // 新增函數來處理keypress事件
+    function handleKeyPress(event) {
+        if(event.keyCode === 13) { // 13是Enter鍵的鍵碼
+            checkPassword();
+        }
+    }
 </script>
 </head>
 <body>
 
 <div id="loginForm">
-    請輸入密碼：<input type="password" id="password">
+    請輸入密碼：<input type="password" id="password" onkeypress="handleKeyPress(event)">
     <button onclick="checkPassword()">提交</button>
 </div>
 
