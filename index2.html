@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>直播&PPT操作流程及注意事項</title>
+<script>
+    function checkPassword() {
+        var password = document.getElementById("password").value;
+        var correctPassword = "123456"; // 這裡設置你的密碼
+        if(password == correctPassword) {
+            document.getElementById("protectedContent").style.display = "block";
+            document.getElementById("loginForm").style.display = "none";
+        } else {
+            alert("密碼錯誤！");
+        }
+    }
+
+    // 新增函數來處理keypress事件
+    function handleKeyPress(event) {
+        if(event.keyCode === 13) { // 13是Enter鍵的鍵碼
+            checkPassword();
+        }
+    }
+</script>
+</head>
+<body>
+
+<div id="loginForm">
+    請輸入密碼：<input type="password" id="password" onkeypress="handleKeyPress(event)">
+    <button onclick="checkPassword()">提交</button>
+</div>
+
+<div id="protectedContent" style="display:none">
+    <h1>直播&PPT操作流程及注意事項</h1>
+    <p>我的第一个段落。</p>
+    <p>我的第1.5个段落。</p>
+    <!-- 這裡可以加入更多保護內容 -->
+</div>
+
+</body>
+</html>
